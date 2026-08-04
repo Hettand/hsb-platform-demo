@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <meta name="description" content="Pagina de pruebas de integracion para componentes externos en Move Studio.">
+  <title>Integracion | Move Studio</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Move Studio inicio">
+      <span class="brand-mark" aria-hidden="true">M</span>
+      <span class="brand-name">Move Studio</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Navegacion principal">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="actividades.html">Actividades</a>
+      <a class="nav-link" href="nosotros.html">Nosotros</a>
+      <a class="nav-link" href="contacto.html">Contacto</a>
+      <a class="nav-link nav-link--test" href="integracion.html">Integracion</a>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="page-hero section-band integration-hero">
+      <p class="eyebrow">Sandbox</p>
+      <h1>Pruebas de componentes embebidos.</h1>
+      <p>Esta pagina concentra contenedores de distintos tamanos y configuraciones para validar integraciones durante el desarrollo.</p>
+    </section>
+
+    <section class="section integration-section">
+      <div class="section-heading">
+        <p class="eyebrow">Actividad / lista</p>
+        <h2>Lista de actividades</h2>
+      </div>
+
+      <div class="test-grid">
+        <article class="integration-case integration-case--wide">
+          <div class="case-header">
+            <span>Contenedor ancho</span>
+            <code>activity:list</code>
+          </div>
+          <div class="embed-surface embed-surface--large">
+            <div
+              data-hsb-module="activity"
+              data-hsb-component="list"
+              data-hsb-place="pk_Ne3cDOQ0F2JuIToG4vrY4fFV">
+            </div>
+          </div>
+        </article>
+
+        <article class="integration-case">
+          <div class="case-header">
+            <span>Contenedor medio</span>
+            <code>activity:list compact</code>
+          </div>
+          <div class="embed-surface embed-surface--medium">
+            <div
+              data-hsb-module="activity"
+              data-hsb-component="list"
+              data-hsb-place="pk_Ne3cDOQ0F2JuIToG4vrY4fFV"
+              data-hsb-variant="compact">
+            </div>
+          </div>
+        </article>
+
+        <article class="integration-case integration-case--narrow">
+          <div class="case-header">
+            <span>Contenedor estrecho</span>
+            <code>activity:list narrow</code>
+          </div>
+          <div class="embed-surface embed-surface--small">
+            <div
+              data-hsb-module="activity"
+              data-hsb-component="list"
+              data-hsb-place="pk_Ne3cDOQ0F2JuIToG4vrY4fFV"
+              data-hsb-layout="single-column">
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section integration-section section-muted">
+      <div class="section-heading">
+        <p class="eyebrow">Futuros componentes</p>
+        <h2>Espacios preparados</h2>
+      </div>
+
+      <div class="test-grid test-grid--four">
+        <article class="integration-case">
+          <div class="case-header">
+            <span>Detalle de actividad</span>
+            <code>activity:detail</code>
+          </div>
+          <div class="embed-surface">
+            <div
+              data-hsb-module="activity"
+              data-hsb-component="detail"
+              data-hsb-place="pk_Ne3cDOQ0F2JuIToG4vrY4fFV"
+              data-hsb-activity-id="DEMO_ACTIVITY_ID">
+            </div>
+          </div>
+        </article>
+
+        <article class="integration-case">
+          <div class="case-header">
+            <span>Calendario</span>
+            <code>schedule:calendar</code>
+          </div>
+          <div class="embed-surface">
+            <div
+              data-hsb-module="schedule"
+              data-hsb-component="calendar"
+              data-hsb-place="pk_Ne3cDOQ0F2JuIToG4vrY4fFV">
+            </div>
+          </div>
+        </article>
+
+        <article class="integration-case">
+          <div class="case-header">
+            <span>Reserva</span>
+            <code>booking:form</code>
+          </div>
+          <div class="embed-surface">
+            <div
+              data-hsb-module="booking"
+              data-hsb-component="form"
+              data-hsb-place="pk_Ne3cDOQ0F2JuIToG4vrY4fFV"
+              data-hsb-activity-id="DEMO_ACTIVITY_ID">
+            </div>
+          </div>
+        </article>
+
+        <article class="integration-case">
+          <div class="case-header">
+            <span>Resumen</span>
+            <code>checkout:summary</code>
+          </div>
+          <div class="embed-surface">
+            <div
+              data-hsb-module="checkout"
+              data-hsb-component="summary"
+              data-hsb-place="pk_Ne3cDOQ0F2JuIToG4vrY4fFV">
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section integration-section">
+      <div class="section-heading">
+        <p class="eyebrow">Configuraciones</p>
+        <h2>Variantes de montaje</h2>
+      </div>
+
+      <div class="configuration-list">
+        <article class="configuration-row">
+          <div>
+            <h3>Tema claro</h3>
+            <p>Contenedor alineado al flujo normal de la pagina.</p>
+          </div>
+          <div class="embed-surface embed-surface--inline">
+            <div
+              data-hsb-module="activity"
+              data-hsb-component="list"
+              data-hsb-place="pk_Ne3cDOQ0F2JuIToG4vrY4fFV"
+              data-hsb-theme="light">
+            </div>
+          </div>
+        </article>
+
+        <article class="configuration-row configuration-row--dark">
+          <div>
+            <h3>Fondo oscuro</h3>
+            <p>Prueba visual para detectar contraste, bordes y estados internos.</p>
+          </div>
+          <div class="embed-surface embed-surface--inline">
+            <div
+              data-hsb-module="activity"
+              data-hsb-component="list"
+              data-hsb-place="pk_Ne3cDOQ0F2JuIToG4vrY4fFV"
+              data-hsb-theme="dark">
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <a class="footer-brand" href="index.html">Move Studio</a>
+      <p>Academia ficticia creada para pruebas visuales y funcionales de integraciones externas.</p>
+    </div>
+    <div class="footer-links">
+      <a href="actividades.html">Actividades</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="integracion.html">Integracion</a>
+    </div>
+    <p class="footer-copy">© <span data-year></span> Move Studio. Proyecto demo independiente.</p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/hsb-platform.config.js"></script>
+  <script src="assets/js/hsb-platform.js"></script>
+</body>
+</html>
+

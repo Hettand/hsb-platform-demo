@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contacto ficticio de Move Studio.">
+  <title>Contacto | Move Studio</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Move Studio inicio">
+      <span class="brand-mark" aria-hidden="true">M</span>
+      <span class="brand-name">Move Studio</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Navegacion principal">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="actividades.html">Actividades</a>
+      <a class="nav-link" href="nosotros.html">Nosotros</a>
+      <a class="nav-link" href="contacto.html">Contacto</a>
+      <a class="nav-link nav-link--test" href="integracion.html">Integracion</a>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="page-hero section-band">
+      <p class="eyebrow">Contacto</p>
+      <h1>Conoce el estudio y encuentra tu proxima clase.</h1>
+      <p>Formulario y datos ficticios para completar la simulacion de una academia independiente.</p>
+    </section>
+
+    <section class="section contact-layout">
+      <div class="contact-panel">
+        <h2>Datos del estudio</h2>
+        <ul class="contact-list">
+          <li><strong>Direccion</strong><span>Rambla Creativa 1280, Montevideo</span></li>
+          <li><strong>Email</strong><span>hola@movestudio.example</span></li>
+          <li><strong>Telefono</strong><span>+598 2400 0000</span></li>
+          <li><strong>Horario</strong><span>Lun a vie 08:00 a 21:30 · Sab 09:00 a 14:00</span></li>
+        </ul>
+      </div>
+
+      <form class="contact-form" data-contact-form>
+        <div class="form-row">
+          <label for="name">Nombre</label>
+          <input id="name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="form-row">
+          <label for="activity">Actividad de interes</label>
+          <select id="activity" name="activity">
+            <option>Contemporaneo inicial</option>
+            <option>Salsa fusion</option>
+            <option>Hip hop lab</option>
+            <option>Mobility flow</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button class="button button-primary" type="submit">Enviar consulta</button>
+        <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <a class="footer-brand" href="index.html">Move Studio</a>
+      <p>Academia ficticia creada para pruebas visuales y funcionales de integraciones externas.</p>
+    </div>
+    <div class="footer-links">
+      <a href="actividades.html">Actividades</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="integracion.html">Integracion</a>
+    </div>
+    <p class="footer-copy">© <span data-year></span> Move Studio. Proyecto demo independiente.</p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
