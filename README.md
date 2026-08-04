@@ -51,7 +51,7 @@ npx serve .
 
 ## Configuracion de HoySeBaila Platform
 
-La URL base de Platform esta centralizada en:
+La URL base y la clave de la Integracion de Platform estan centralizadas en:
 
 ```text
 assets/js/hsb-platform.config.js
@@ -61,9 +61,10 @@ El sitio carga scripts y futuras integraciones usando siempre:
 
 ```js
 window.HSB_PLATFORM.baseUrl
+window.HSB_PLATFORM.embedKey
 ```
 
-Para cambiar de entorno, editar solamente `baseUrl` en ese archivo.
+Para cambiar de entorno, editar solamente `baseUrl` en ese archivo. Para probar otra Integracion, cambiar solamente `embedKey`.
 
 ## HoySeBaila Platform Lab
 
@@ -75,19 +76,19 @@ La pagina `integracion.html` funciona como laboratorio de desarrollo y validacio
 <script src="assets/js/hsb-platform.js"></script>
 ```
 
-`assets/js/hsb-platform.js` construye la URL de `embed.js` desde la configuracion central.
+`assets/js/hsb-platform.js` construye la URL de `embed.js` desde la configuracion central y prepara los contenedores con la clave `emb_`.
 
-La pagina tambien incluye espacios de montaje con atributos `data-hsb-*`, por ejemplo:
+La pagina incluye espacios de montaje propios del laboratorio:
 
 ```html
-<div
-  data-hsb-module="activity"
-  data-hsb-component="list"
-  data-hsb-place="pk_Ne3cDOQ0F2JuIToG4vrY4fFV">
-</div>
+<div data-hsb-platform-slot="activity-list"></div>
 ```
 
-El lab ya apunta a la clave publica del Lugar de desarrollo `Move Studio`, que tiene la integracion habilitada.
+Antes de cargar `embed.js`, el loader convierte esos espacios al contrato oficial:
+
+```html
+<div data-hsb="emb_xxxxxxxxx"></div>
+```
 
 Los casos principales de `Activity List` se muestran dentro de marcos con anchos reales representativos:
 
@@ -127,7 +128,7 @@ Opciones habituales:
 - Netlify: arrastrar la carpeta al panel de deploy o conectar un repositorio.
 - Cloudflare Pages: conectar el repositorio y dejar el comando de build vacio.
 
-Para produccion, revisar solamente `assets/js/hsb-platform.config.js` y cambiar el valor de `baseUrl`.
+Para produccion, revisar solamente `assets/js/hsb-platform.config.js` y cambiar `baseUrl` y, si corresponde, `embedKey`.
 
 ## Notas
 

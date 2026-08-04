@@ -23,14 +23,14 @@
     var configured = caseElement.getAttribute("data-lab-component");
     if (configured) return configured;
 
-    var moduleName = embedElement ? embedElement.getAttribute("data-hsb-module") : "";
-    var componentName = embedElement ? embedElement.getAttribute("data-hsb-component") : "";
+    var moduleName = embedElement ? embedElement.getAttribute("data-hsb-platform-slot") : "";
+    var componentName = embedElement ? embedElement.getAttribute("data-hsb") : "";
     return [moduleName, componentName].filter(Boolean).join(" / ") || "Componente";
   }
 
   function updateLabCase(caseElement) {
     var viewport = caseElement.querySelector(".lab-viewport");
-    var embedElement = caseElement.querySelector("[data-hsb-module]");
+    var embedElement = caseElement.querySelector("[data-hsb], [data-hsb-platform-slot]");
     var width = viewport ? Math.round(viewport.getBoundingClientRect().width) : Number(caseElement.getAttribute("data-lab-width") || 0);
     var status = embedElement ? embedElement.getAttribute("data-hsb-embed-status") : "";
 
@@ -48,7 +48,7 @@
   }
 
   function initLabCase(caseElement) {
-    var embedElement = caseElement.querySelector("[data-hsb-module]");
+    var embedElement = caseElement.querySelector("[data-hsb], [data-hsb-platform-slot]");
     var viewport = caseElement.querySelector(".lab-viewport");
 
     updateLabCase(caseElement);

@@ -27,11 +27,27 @@
     return window.fetch(buildUrl(path), options);
   }
 
+  function preparePlatformSlots() {
+    var config = getConfig();
+    var embedKey = String(config.embedKey || "").trim();
+
+    document.querySelectorAll("[data-hsb-platform-slot]").forEach(function (slot) {
+      if (embedKey) {
+        slot.setAttribute("data-hsb", embedKey);
+      }
+
+      if (!slot.getAttribute("data-placeholder")) {
+        slot.setAttribute("data-placeholder", slot.getAttribute("data-hsb-platform-slot") || "platform");
+      }
+    });
+  }
+
   window.HSBPlatform = {
     buildUrl: buildUrl,
     fetch: platformFetch,
     loadScript: loadScript
   };
 
+  preparePlatformSlots();
   loadScript("/platform/embed.js");
 })(window, document);

@@ -41,9 +41,7 @@
     });
   }
 
-  document.querySelectorAll("[data-hsb-module]").forEach(function (slot) {
-    var moduleName = slot.getAttribute("data-hsb-module");
-    var componentName = slot.getAttribute("data-hsb-component");
-    slot.setAttribute("data-placeholder", moduleName + ":" + componentName);
+  document.querySelectorAll("[data-hsb-platform-slot]").forEach(function (slot) {
+    slot.setAttribute("data-placeholder", slot.getAttribute("data-hsb-platform-slot") || "platform");
   });
 })();
