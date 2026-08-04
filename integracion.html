@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex">
-  <meta name="description" content="Pagina de pruebas de integracion para componentes externos en Move Studio.">
-  <title>Integracion | Move Studio</title>
+  <meta name="description" content="HoySeBaila Platform Lab para validar componentes embebidos en distintos anchos de contenedor.">
+  <title>HoySeBaila Platform Lab | Move Studio</title>
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
@@ -25,64 +25,131 @@
       <a class="nav-link" href="actividades.html">Actividades</a>
       <a class="nav-link" href="nosotros.html">Nosotros</a>
       <a class="nav-link" href="contacto.html">Contacto</a>
-      <a class="nav-link nav-link--test" href="integracion.html">Integracion</a>
+      <a class="nav-link nav-link--test" href="integracion.html">Platform Lab</a>
     </nav>
   </header>
 
   <main id="contenido">
     <section class="page-hero section-band integration-hero">
-      <p class="eyebrow">Sandbox</p>
-      <h1>Pruebas de componentes embebidos.</h1>
-      <p>Esta pagina concentra contenedores de distintos tamanos y configuraciones para validar integraciones durante el desarrollo.</p>
+      <p class="eyebrow">HoySeBaila Platform Lab</p>
+      <h1>Laboratorio oficial de componentes embebidos.</h1>
+      <p>Comparacion visual y funcional de componentes de HoySeBaila Platform en contenedores reales de distintos tamanos.</p>
     </section>
 
     <section class="section integration-section">
       <div class="section-heading">
-        <p class="eyebrow">Actividad / lista</p>
-        <h2>Lista de actividades</h2>
+        <p class="eyebrow">Activity List</p>
+        <h2>Mismo componente, distintos anchos reales</h2>
+        <p>Estos marcos mantienen anchos representativos aunque la pantalla sea pequena. En movil, los marcos grandes se pueden desplazar horizontalmente para validar el comportamiento real del widget.</p>
       </div>
 
-      <div class="test-grid">
-        <article class="integration-case integration-case--wide">
+      <div class="platform-lab-stack">
+        <article class="integration-case platform-lab-case platform-lab-case--wide"
+                 data-lab-case
+                 data-lab-component="Activity List"
+                 data-lab-width="1200">
           <div class="case-header">
-            <span>Contenedor ancho</span>
+            <div>
+              <span>Contenedor ancho</span>
+              <small>&asymp; 1200 px</small>
+            </div>
             <code>activity:list</code>
           </div>
-          <div class="embed-surface embed-surface--large">
-            <div
-              data-hsb-module="activity"
-              data-hsb-component="list"
-              data-hsb-place="pk_Ne3cDOQ0F2JuIToG4vrY4fFV">
+
+          <div class="lab-panel" aria-label="Informacion de validacion">
+            <div><span>Componente</span><strong data-lab-component-output>Activity List</strong></div>
+            <div><span>Layout activo</span><strong data-lab-layout>Calculando</strong></div>
+            <div><span>Ancho efectivo</span><strong data-lab-effective-width>1200 px</strong></div>
+            <div><span>Estado</span><strong data-lab-status>Pendiente</strong></div>
+          </div>
+
+          <div class="lab-viewport-scroll" aria-label="Marco con desplazamiento horizontal si es necesario">
+            <div class="lab-viewport">
+              <div class="lab-ruler">
+                <span>Marco fijo</span>
+                <strong>&asymp; 1200 px</strong>
+              </div>
+              <div class="embed-surface embed-surface--large" data-lab-surface>
+                <div
+                  data-hsb-module="activity"
+                  data-hsb-component="list"
+                  data-hsb-place="pk_Ne3cDOQ0F2JuIToG4vrY4fFV">
+                </div>
+              </div>
             </div>
           </div>
         </article>
 
-        <article class="integration-case">
+        <article class="integration-case platform-lab-case platform-lab-case--medium"
+                 data-lab-case
+                 data-lab-component="Activity List"
+                 data-lab-width="700">
           <div class="case-header">
-            <span>Contenedor medio</span>
+            <div>
+              <span>Contenedor medio</span>
+              <small>&asymp; 700 px</small>
+            </div>
             <code>activity:list compact</code>
           </div>
-          <div class="embed-surface embed-surface--medium">
-            <div
-              data-hsb-module="activity"
-              data-hsb-component="list"
-              data-hsb-place="pk_Ne3cDOQ0F2JuIToG4vrY4fFV"
-              data-hsb-variant="compact">
+
+          <div class="lab-panel" aria-label="Informacion de validacion">
+            <div><span>Componente</span><strong data-lab-component-output>Activity List</strong></div>
+            <div><span>Layout activo</span><strong data-lab-layout>Calculando</strong></div>
+            <div><span>Ancho efectivo</span><strong data-lab-effective-width>700 px</strong></div>
+            <div><span>Estado</span><strong data-lab-status>Pendiente</strong></div>
+          </div>
+
+          <div class="lab-viewport-scroll" aria-label="Marco con desplazamiento horizontal si es necesario">
+            <div class="lab-viewport">
+              <div class="lab-ruler">
+                <span>Marco fijo</span>
+                <strong>&asymp; 700 px</strong>
+              </div>
+              <div class="embed-surface embed-surface--medium" data-lab-surface>
+                <div
+                  data-hsb-module="activity"
+                  data-hsb-component="list"
+                  data-hsb-place="pk_Ne3cDOQ0F2JuIToG4vrY4fFV"
+                  data-hsb-variant="compact">
+                </div>
+              </div>
             </div>
           </div>
         </article>
 
-        <article class="integration-case integration-case--narrow">
+        <article class="integration-case platform-lab-case platform-lab-case--narrow"
+                 data-lab-case
+                 data-lab-component="Activity List"
+                 data-lab-width="320">
           <div class="case-header">
-            <span>Contenedor estrecho</span>
+            <div>
+              <span>Contenedor estrecho</span>
+              <small>&asymp; 320 px</small>
+            </div>
             <code>activity:list narrow</code>
           </div>
-          <div class="embed-surface embed-surface--small">
-            <div
-              data-hsb-module="activity"
-              data-hsb-component="list"
-              data-hsb-place="pk_Ne3cDOQ0F2JuIToG4vrY4fFV"
-              data-hsb-layout="single-column">
+
+          <div class="lab-panel" aria-label="Informacion de validacion">
+            <div><span>Componente</span><strong data-lab-component-output>Activity List</strong></div>
+            <div><span>Layout activo</span><strong data-lab-layout>Calculando</strong></div>
+            <div><span>Ancho efectivo</span><strong data-lab-effective-width>320 px</strong></div>
+            <div><span>Estado</span><strong data-lab-status>Pendiente</strong></div>
+          </div>
+
+          <div class="lab-viewport-scroll" aria-label="Marco con desplazamiento horizontal si es necesario">
+            <div class="lab-viewport">
+              <div class="lab-ruler">
+                <span>Marco fijo</span>
+                <strong>&asymp; 320 px</strong>
+              </div>
+              <div class="embed-surface embed-surface--small" data-lab-surface>
+                <div
+                  data-hsb-module="activity"
+                  data-hsb-component="list"
+                  data-hsb-place="pk_Ne3cDOQ0F2JuIToG4vrY4fFV"
+                  data-hsb-layout="single-column">
+                </div>
+              </div>
             </div>
           </div>
         </article>
@@ -205,12 +272,13 @@
       <a href="actividades.html">Actividades</a>
       <a href="nosotros.html">Nosotros</a>
       <a href="contacto.html">Contacto</a>
-      <a href="integracion.html">Integracion</a>
+      <a href="integracion.html">Platform Lab</a>
     </div>
     <p class="footer-copy">© <span data-year></span> Move Studio. Proyecto demo independiente.</p>
   </footer>
 
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/platform-lab.js"></script>
   <script src="assets/js/hsb-platform.config.js"></script>
   <script src="assets/js/hsb-platform.js"></script>
 </body>
