@@ -29,11 +29,15 @@
 
   function preparePlatformSlots() {
     var config = getConfig();
-    var embedKey = String(config.embedKey || "").trim();
+    var platformKey = String(config.platformKey || "").trim();
 
     document.querySelectorAll("[data-hsb-platform-slot]").forEach(function (slot) {
-      if (embedKey) {
-        slot.setAttribute("data-hsb", embedKey);
+      slot.removeAttribute("data-hsb");
+
+      if (platformKey) {
+        slot.setAttribute("data-hsb-platform", platformKey);
+      } else {
+        slot.removeAttribute("data-hsb-platform");
       }
 
       if (!slot.getAttribute("data-placeholder")) {

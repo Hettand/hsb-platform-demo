@@ -1,6 +1,6 @@
 (function (window) {
   window.HSB_PLATFORM = {
     baseUrl: "https://dev.hoysebaila.uy",
-    embedKey: "emb_sQdlpXXSIlSnaQyV"
+    platformKey: "plt_NQwdwtkVAGtHs5uJ"
   };
 })(window);
