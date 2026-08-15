@@ -47,10 +47,27 @@
     caseElement.setAttribute("data-lab-state", getStatusState(status));
   }
 
+  function setLabWidth(caseElement, width) {
+    var parsed = Number(width);
+    if (!parsed || parsed < 240) return;
+
+    caseElement.style.setProperty("--lab-width", parsed + "px");
+    caseElement.style.setProperty("--lab-min-height", parsed <= 360 ? "420px" : (parsed >= 1000 ? "380px" : "310px"));
+    caseElement.setAttribute("data-lab-width", String(parsed));
+
+    caseElement.querySelectorAll("[data-lab-width-option]").forEach(function (button) {
+      var isActive = button.getAttribute("data-lab-width-option") === String(parsed);
+      button.setAttribute("aria-pressed", isActive ? "true" : "false");
+    });
+
+    updateLabCase(caseElement);
+  }
+
   function initLabCase(caseElement) {
     var embedElement = caseElement.querySelector("[data-hsb-platform], [data-hsb-platform-slot]");
     var viewport = caseElement.querySelector(".lab-viewport");
 
+    setLabWidth(caseElement, caseElement.getAttribute("data-lab-width") || 1200);
     updateLabCase(caseElement);
 
     if (window.ResizeObserver && viewport) {
@@ -69,6 +86,12 @@
         attributeFilter: ["data-hsb-embed-status", "data-hsb-embed-mounted"]
       });
     }
+
+    caseElement.querySelectorAll("[data-lab-width-option]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        setLabWidth(caseElement, button.getAttribute("data-lab-width-option"));
+      });
+    });
   }
 
   function initPlatformLab() {

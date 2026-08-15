@@ -39,101 +39,33 @@
     <section class="section integration-section">
       <div class="section-heading">
         <p class="eyebrow">Activity List</p>
-        <h2>Mismo componente, distintos anchos reales</h2>
-        <p>Estos marcos mantienen anchos representativos aunque la pantalla sea pequena. En movil, los marcos grandes se pueden desplazar horizontalmente para validar el comportamiento real del widget.</p>
+        <h2>Un montaje limpio, anchos reales</h2>
+        <p>La informacion tecnica queda separada del escenario visual para evaluar el componente casi directo sobre la web cliente.</p>
       </div>
 
       <div class="platform-lab-stack">
-        <article class="integration-case platform-lab-case platform-lab-case--wide"
+        <article class="integration-case platform-lab-case platform-lab-case--wide is-clean"
                  data-lab-case
                  data-lab-component="Activity List"
                  data-lab-width="1200">
-          <div class="case-header">
-            <div>
-              <span>Contenedor ancho</span>
-              <small>&asymp; 1200 px</small>
+          <div class="lab-topbar">
+            <div class="lab-panel" aria-label="Informacion de validacion">
+              <div><span>Componente</span><strong data-lab-component-output>Activity List</strong></div>
+              <div><span>Layout</span><strong data-lab-layout>Calculando</strong></div>
+              <div><span>Ancho</span><strong data-lab-effective-width>1200 px</strong></div>
+              <div><span>Estado</span><strong data-lab-status>Pendiente</strong></div>
             </div>
-            <code>activity:list</code>
+
+            <div class="lab-width-controls" aria-label="Ancho de prueba">
+              <button type="button" data-lab-width-option="1200" aria-pressed="true">1200</button>
+              <button type="button" data-lab-width-option="700" aria-pressed="false">700</button>
+              <button type="button" data-lab-width-option="320" aria-pressed="false">320</button>
+            </div>
           </div>
 
-          <div class="lab-panel" aria-label="Informacion de validacion">
-            <div><span>Componente</span><strong data-lab-component-output>Activity List</strong></div>
-            <div><span>Layout activo</span><strong data-lab-layout>Calculando</strong></div>
-            <div><span>Ancho efectivo</span><strong data-lab-effective-width>1200 px</strong></div>
-            <div><span>Estado</span><strong data-lab-status>Pendiente</strong></div>
-          </div>
-
-          <div class="lab-viewport-scroll" aria-label="Marco con desplazamiento horizontal si es necesario">
+          <div class="lab-viewport-scroll" aria-label="Area de prueba con desplazamiento horizontal si es necesario">
             <div class="lab-viewport">
-              <div class="lab-ruler">
-                <span>Marco fijo</span>
-                <strong>&asymp; 1200 px</strong>
-              </div>
-              <div class="embed-surface embed-surface--large" data-lab-surface>
-                <div data-hsb-platform-slot="activity-list"></div>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="integration-case platform-lab-case platform-lab-case--medium"
-                 data-lab-case
-                 data-lab-component="Activity List"
-                 data-lab-width="700">
-          <div class="case-header">
-            <div>
-              <span>Contenedor medio</span>
-              <small>&asymp; 700 px</small>
-            </div>
-            <code>activity:list compact</code>
-          </div>
-
-          <div class="lab-panel" aria-label="Informacion de validacion">
-            <div><span>Componente</span><strong data-lab-component-output>Activity List</strong></div>
-            <div><span>Layout activo</span><strong data-lab-layout>Calculando</strong></div>
-            <div><span>Ancho efectivo</span><strong data-lab-effective-width>700 px</strong></div>
-            <div><span>Estado</span><strong data-lab-status>Pendiente</strong></div>
-          </div>
-
-          <div class="lab-viewport-scroll" aria-label="Marco con desplazamiento horizontal si es necesario">
-            <div class="lab-viewport">
-              <div class="lab-ruler">
-                <span>Marco fijo</span>
-                <strong>&asymp; 700 px</strong>
-              </div>
-              <div class="embed-surface embed-surface--medium" data-lab-surface>
-                <div data-hsb-platform-slot="activity-list"></div>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="integration-case platform-lab-case platform-lab-case--narrow"
-                 data-lab-case
-                 data-lab-component="Activity List"
-                 data-lab-width="320">
-          <div class="case-header">
-            <div>
-              <span>Contenedor estrecho</span>
-              <small>&asymp; 320 px</small>
-            </div>
-            <code>activity:list narrow</code>
-          </div>
-
-          <div class="lab-panel" aria-label="Informacion de validacion">
-            <div><span>Componente</span><strong data-lab-component-output>Activity List</strong></div>
-            <div><span>Layout activo</span><strong data-lab-layout>Calculando</strong></div>
-            <div><span>Ancho efectivo</span><strong data-lab-effective-width>320 px</strong></div>
-            <div><span>Estado</span><strong data-lab-status>Pendiente</strong></div>
-          </div>
-
-          <div class="lab-viewport-scroll" aria-label="Marco con desplazamiento horizontal si es necesario">
-            <div class="lab-viewport">
-              <div class="lab-ruler">
-                <span>Marco fijo</span>
-                <strong>&asymp; 320 px</strong>
-              </div>
-              <div class="embed-surface embed-surface--small" data-lab-surface>
+              <div class="embed-surface embed-surface--lab" data-lab-surface>
                 <div data-hsb-platform-slot="activity-list"></div>
               </div>
             </div>
