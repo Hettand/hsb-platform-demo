@@ -30,8 +30,18 @@
   function preparePlatformSlots() {
     var config = getConfig();
     var platformKey = String(config.platformKey || "").trim();
+    var modules = {
+      "activity-list": "activity-list",
+      "weekly-schedule": "weekly-schedule"
+    };
+    var placeholders = {
+      "activity-list": "Cargando actividades...",
+      "weekly-schedule": "Cargando horarios..."
+    };
 
     document.querySelectorAll("[data-hsb-platform-slot]").forEach(function (slot) {
+      var slotName = slot.getAttribute("data-hsb-platform-slot") || "";
+
       slot.removeAttribute("data-hsb");
 
       if (platformKey) {
@@ -40,8 +50,12 @@
         slot.removeAttribute("data-hsb-platform");
       }
 
+      if (modules[slotName] && !slot.getAttribute("data-hsb-module")) {
+        slot.setAttribute("data-hsb-module", modules[slotName]);
+      }
+
       if (!slot.getAttribute("data-placeholder")) {
-        slot.setAttribute("data-placeholder", slot.getAttribute("data-hsb-platform-slot") || "platform");
+        slot.setAttribute("data-placeholder", placeholders[slotName] || "Cargando contenido...");
       }
     });
   }

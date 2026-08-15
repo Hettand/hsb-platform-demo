@@ -42,6 +42,12 @@
   }
 
   document.querySelectorAll("[data-hsb-platform-slot]").forEach(function (slot) {
-    slot.setAttribute("data-placeholder", slot.getAttribute("data-hsb-platform-slot") || "platform");
+    var slotName = slot.getAttribute("data-hsb-platform-slot") || "";
+    var placeholders = {
+      "activity-list": "Cargando actividades...",
+      "weekly-schedule": "Cargando horarios..."
+    };
+
+    slot.setAttribute("data-placeholder", placeholders[slotName] || "Cargando contenido...");
   });
 })();
