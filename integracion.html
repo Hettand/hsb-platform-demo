@@ -29,60 +29,8 @@
     </nav>
   </header>
 
-  <main id="contenido">
-    <section class="hero section-band platform-client-hero">
-      <div class="hero-content">
-        <p class="eyebrow">Agenda online</p>
-        <h1>Reserva tu proxima clase en Move Studio.</h1>
-        <p class="hero-copy">Consulta horarios actualizados, encontra una actividad para tu nivel y sumate al grupo que mejor encaje con tu semana.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="#horarios">Ver horarios</a>
-          <a class="button button-secondary" href="#actividades">Explorar actividades</a>
-        </div>
-      </div>
-
-      <aside class="client-hero-card" aria-label="Resumen del estudio">
-        <span>Salas abiertas hoy</span>
-        <strong>08:00 - 21:30</strong>
-        <p>Clases grupales, practicas guiadas y workshops con reserva online.</p>
-      </aside>
-    </section>
-
-    <section class="section platform-client-section" id="horarios">
-      <div class="section-heading">
-        <p class="eyebrow">Horarios</p>
-        <h2>Clases de la semana</h2>
-        <p>Elegir una clase desde la agenda te muestra el detalle, cupos y opciones de reserva.</p>
-      </div>
-
-      <div class="platform-client-slot">
-        <div data-hsb-platform-slot="weekly-schedule"></div>
-      </div>
-    </section>
-
-    <section class="section platform-client-section section-muted" id="actividades">
-      <div class="section-heading">
-        <p class="eyebrow">Actividades</p>
-        <h2>Encontrar una clase</h2>
-        <p>Explora las actividades disponibles y entra al detalle para ver horarios, nivel y lugar.</p>
-      </div>
-
-      <div class="platform-client-slot">
-        <div data-hsb-platform-slot="activity-list"></div>
-      </div>
-    </section>
-
-    <section class="section split-section">
-      <div>
-        <p class="eyebrow">Acompanamiento</p>
-        <h2>Te ayudamos a elegir el grupo adecuado.</h2>
-      </div>
-      <div class="text-stack">
-        <p>Si estas empezando, podes venir a una clase inicial y conversar con el equipo antes de definir tu plan.</p>
-        <p>Para niveles intermedios y avanzados recomendamos revisar el detalle de cada actividad y reservar con anticipacion.</p>
-        <a class="button button-secondary" href="contacto.html">Consultar por WhatsApp</a>
-      </div>
-    </section>
+  <main id="contenido" class="platform-content-host">
+    <div id="hsb-platform-site" data-hsb-render="site"></div>
   </main>
 
   <footer class="site-footer">

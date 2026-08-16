@@ -1,14 +1,14 @@
 # Move Studio Platform Test
 
-Sitio estatico independiente que simula la web real de una academia ficticia que instala componentes HoySeBaila Platform en su propio layout.
+Sitio estatico independiente que simula la web real de una academia ficticia que aloja una zona HoySeBaila Platform dentro de su propio layout.
 
 Este proyecto representa solamente el escenario:
 
 ```text
-web existente de una academia + componentes HoySeBaila Platform embebidos
+web existente de una academia + zona Platform embebida
 ```
 
-No usa el renderer ni la configuracion editorial de paginas completas generadas por Platform.
+Move Studio conserva su chrome exterior, pero la zona de agenda renderiza el contenido publicado desde `publishedConfig.page`.
 
 ## Estructura
 
@@ -34,23 +34,23 @@ move-studio-platform-test/
 - `actividades.html`: grilla editorial ficticia propia de Move Studio.
 - `nosotros.html`: historia y equipo ficticio.
 - `contacto.html`: datos y formulario demo sin envio real.
-- `integracion.html`: pagina de agenda de Move Studio con componentes Platform embebidos.
+- `integracion.html`: pagina de agenda de Move Studio con la zona Platform publicada embebida.
 
 ## Responsabilidades
 
 Move Studio controla:
 
 - header y navegacion;
-- hero;
-- titulos, textos y CTAs editoriales;
-- secciones de contenido;
 - footer;
 - layout y responsive de la web cliente.
 
-HoySeBaila Platform aporta unicamente la experiencia embebida:
+HoySeBaila Platform aporta la zona editable/publicada:
 
+- Hero;
 - Weekly Schedule;
 - Activity List;
+- Contacto;
+- orden, visibilidad, textos, CTA, fondos e imagenes definidos en Platform;
 - Activity Detail;
 - inscripcion;
 - auth;
@@ -58,7 +58,7 @@ HoySeBaila Platform aporta unicamente la experiencia embebida:
 - drawers;
 - mapas;
 - deep links;
-- theme interno de los componentes.
+- theme de la integracion.
 
 ## Ejecutar Localmente
 
@@ -99,16 +99,15 @@ window.HSB_PLATFORM = {
 };
 ```
 
-## Slots Embebidos
+## Zona Platform Embebida
 
-`integracion.html` declara espacios propios del sitio cliente:
+`integracion.html` declara un unico mount para la zona Platform publicada:
 
 ```html
-<div data-hsb-platform-slot="weekly-schedule"></div>
-<div data-hsb-platform-slot="activity-list"></div>
+<div id="hsb-platform-site" data-hsb-render="site"></div>
 ```
 
-`assets/js/hsb-platform.js` los adapta al contrato oficial del embed, agrega la clave `plt_`, define el modulo correspondiente y carga:
+`assets/js/hsb-platform.js` agrega la clave `plt_`, conserva `data-hsb-render="site"` y carga:
 
 ```html
 <script src="https://dev.hoysebaila.uy/platform/embed.js"></script>
@@ -118,6 +117,8 @@ window.HSB_PLATFORM = {
 
 En `integracion.html`, revisar:
 
+- El contenido Platform publicado coincide con el editor de HSB sin controles.
+- Hero, Horarios, Actividades y Contacto salen de `publishedConfig.page`.
 - Weekly Schedule carga y permite seleccionar dias.
 - Activity List carga y responde al ancho real del contenedor.
 - Activity Detail abre en drawer sin salir de Move Studio.
@@ -126,7 +127,7 @@ En `integracion.html`, revisar:
 - La barra personal aparece cuando corresponde.
 - Deep links compartidos abren directamente el drawer correcto.
 - El theme light/dark proviene de la configuracion Platform.
-- Desktop y mobile usan la misma pagina y los mismos componentes reales.
+- Desktop y mobile usan el mismo renderer Platform publicado dentro del chrome de Move Studio.
 
 ## Publicar En Hosting Estatico
 
@@ -137,6 +138,6 @@ Para produccion, revisar solamente `assets/js/hsb-platform.config.js` y cambiar 
 ## Notas
 
 - Move Studio es una academia ficticia.
-- El contenido editorial pertenece a Move Studio.
+- El contenido editorial de la zona Platform pertenece a la configuracion publicada de Platform.
 - El formulario de contacto no envia datos.
 - La pagina de integracion incluye `noindex` para evitar indexacion accidental durante pruebas.
