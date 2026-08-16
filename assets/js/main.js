@@ -40,14 +40,4 @@
       contactForm.reset();
     });
   }
-
-  document.querySelectorAll("[data-hsb-platform-slot]").forEach(function (slot) {
-    var slotName = slot.getAttribute("data-hsb-platform-slot") || "";
-    var placeholders = {
-      "activity-list": "Cargando actividades...",
-      "weekly-schedule": "Cargando horarios..."
-    };
-
-    slot.setAttribute("data-placeholder", placeholders[slotName] || "Cargando contenido...");
-  });
 })();

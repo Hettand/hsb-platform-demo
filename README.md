@@ -1,8 +1,14 @@
-# Move Studio Platform Lab
+# Move Studio Platform Test
 
-Sitio estatico independiente para simular la web real de una academia ficticia y usarlo como laboratorio oficial de HoySeBaila Platform.
+Sitio estatico independiente que simula la web real de una academia ficticia que instala componentes HoySeBaila Platform en su propio layout.
 
-El proyecto no usa React, Vue, Angular ni frameworks. Esta hecho con HTML, CSS y JavaScript puro para poder publicarse en cualquier hosting estatico.
+Este proyecto representa solamente el escenario:
+
+```text
+web existente de una academia + componentes HoySeBaila Platform embebidos
+```
+
+No usa el renderer ni la configuracion editorial de paginas completas generadas por Platform.
 
 ## Estructura
 
@@ -19,19 +25,42 @@ move-studio-platform-test/
     `-- js/
         |-- main.js
         |-- hsb-platform.config.js
-        |-- hsb-platform.js
-        `-- platform-lab.js
+        `-- hsb-platform.js
 ```
 
-## Paginas incluidas
+## Paginas Incluidas
 
 - `index.html`: home publica de Move Studio.
-- `actividades.html`: grilla de actividades ficticias.
+- `actividades.html`: grilla editorial ficticia propia de Move Studio.
 - `nosotros.html`: historia y equipo ficticio.
 - `contacto.html`: datos y formulario demo sin envio real.
-- `integracion.html`: HoySeBaila Platform Lab para validar componentes embebidos.
+- `integracion.html`: pagina de agenda de Move Studio con componentes Platform embebidos.
 
-## Ejecutar localmente
+## Responsabilidades
+
+Move Studio controla:
+
+- header y navegacion;
+- hero;
+- titulos, textos y CTAs editoriales;
+- secciones de contenido;
+- footer;
+- layout y responsive de la web cliente.
+
+HoySeBaila Platform aporta unicamente la experiencia embebida:
+
+- Weekly Schedule;
+- Activity List;
+- Activity Detail;
+- inscripcion;
+- auth;
+- barra personal;
+- drawers;
+- mapas;
+- deep links;
+- theme interno de los componentes.
+
+## Ejecutar Localmente
 
 Como es un sitio estatico, se puede abrir `index.html` directamente en el navegador.
 
@@ -41,15 +70,19 @@ Para probarlo con servidor local, desde esta carpeta:
 python -m http.server 8080
 ```
 
-Luego abrir el navegador en el puerto indicado por el servidor local.
-
-Si usas Node.js y prefieres `serve`:
+Si Python no esta disponible:
 
 ```bash
-npx serve .
+npx serve . -l 8080
 ```
 
-## Configuracion de HoySeBaila Platform
+Luego abrir:
+
+```text
+http://localhost:8080/integracion.html
+```
+
+## Configuracion De Platform
 
 La URL base y la clave de la Integracion de Platform estan centralizadas en:
 
@@ -57,82 +90,53 @@ La URL base y la clave de la Integracion de Platform estan centralizadas en:
 assets/js/hsb-platform.config.js
 ```
 
-El sitio carga scripts y futuras integraciones usando siempre:
+Para cambiar de entorno o integracion:
 
 ```js
-window.HSB_PLATFORM.baseUrl
-window.HSB_PLATFORM.platformKey
+window.HSB_PLATFORM = {
+  baseUrl: "https://dev.hoysebaila.uy",
+  platformKey: "plt_xxxxxxxxxxxx"
+};
 ```
 
-Para cambiar de entorno, editar solamente `baseUrl` en ese archivo. Para probar otra Integracion, cambiar solamente `platformKey`.
+## Slots Embebidos
 
-## HoySeBaila Platform Lab
-
-La pagina `integracion.html` funciona como laboratorio de desarrollo y validacion. Incluye la configuracion centralizada, el panel de diagnostico y el loader de Platform:
+`integracion.html` declara espacios propios del sitio cliente:
 
 ```html
-<script src="assets/js/platform-lab.js"></script>
-<script src="assets/js/hsb-platform.config.js"></script>
-<script src="assets/js/hsb-platform.js"></script>
-```
-
-`assets/js/hsb-platform.js` construye la URL de `embed.js` desde la configuracion central y prepara los contenedores con la clave `plt_`.
-
-La pagina incluye espacios de montaje propios del laboratorio:
-
-```html
+<div data-hsb-platform-slot="weekly-schedule"></div>
 <div data-hsb-platform-slot="activity-list"></div>
 ```
 
-Antes de cargar `embed.js`, el loader convierte esos espacios al contrato oficial:
+`assets/js/hsb-platform.js` los adapta al contrato oficial del embed, agrega la clave `plt_`, define el modulo correspondiente y carga:
 
 ```html
-<div data-hsb-platform="plt_xxxxxxxxx"></div>
+<script src="https://dev.hoysebaila.uy/platform/embed.js"></script>
 ```
 
-Los casos principales de `Activity List` se muestran dentro de marcos con anchos reales representativos:
+## Validacion Manual
 
-- Contenedor ancho: aprox. `1200 px`.
-- Contenedor medio: aprox. `700 px`.
-- Contenedor estrecho: aprox. `320 px`.
+En `integracion.html`, revisar:
 
-Cada caso muestra un panel superior con:
+- Weekly Schedule carga y permite seleccionar dias.
+- Activity List carga y responde al ancho real del contenedor.
+- Activity Detail abre en drawer sin salir de Move Studio.
+- Modal de horario abre desde Weekly Schedule.
+- Inscripcion y login usan los flujos reales de Platform.
+- La barra personal aparece cuando corresponde.
+- Deep links compartidos abren directamente el drawer correcto.
+- El theme light/dark proviene de la configuracion Platform.
+- Desktop y mobile usan la misma pagina y los mismos componentes reales.
 
-- Componente.
-- Layout activo.
-- Ancho efectivo.
-- Estado de carga.
+## Publicar En Hosting Estatico
 
-Esto permite comparar rapidamente como responde el mismo componente cuando se incrusta en una pagina completa, una columna intermedia o un contenedor estrecho.
+El proyecto no requiere build. Se puede publicar subiendo la carpeta completa a cualquier hosting estatico.
 
-La pagina contiene contenedores de distintos tamanos y variantes para validar:
-
-- Lista de actividades.
-- Lista compacta.
-- Contenedor estrecho.
-- Detalle de actividad.
-- Calendario.
-- Reserva.
-- Resumen de checkout.
-- Pruebas con fondo claro y fondo oscuro.
-
-Algunos componentes pueden no existir todavia. La estructura queda preparada para ir conectandolos durante el desarrollo de Platform.
-
-## Publicar en hosting estatico
-
-El proyecto puede publicarse sin build step. Solo hay que subir todos los archivos de esta carpeta.
-
-Opciones habituales:
-
-- GitHub Pages: subir el proyecto a un repositorio y activar Pages desde la rama principal.
-- Netlify: arrastrar la carpeta al panel de deploy o conectar un repositorio.
-- Cloudflare Pages: conectar el repositorio y dejar el comando de build vacio.
-
-Para produccion, revisar solamente `assets/js/hsb-platform.config.js` y cambiar `baseUrl` y, si corresponde, `platformKey`.
+Para produccion, revisar solamente `assets/js/hsb-platform.config.js` y cambiar `baseUrl` y `platformKey` si corresponde.
 
 ## Notas
 
 - Move Studio es una academia ficticia.
-- El sitio no reutiliza componentes, estilos ni recursos visuales de HoySeBaila.
+- El contenido editorial pertenece a Move Studio.
 - El formulario de contacto no envia datos.
-- `integracion.html` incluye `noindex` para evitar indexacion accidental cuando se publique.
+- La pagina de integracion incluye `noindex` para evitar indexacion accidental durante pruebas.
