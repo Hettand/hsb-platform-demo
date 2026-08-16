@@ -23,9 +23,7 @@ move-studio-platform-test/
     |-- css/
     |   `-- styles.css
     `-- js/
-        |-- main.js
-        |-- hsb-platform.config.js
-        `-- hsb-platform.js
+        `-- main.js
 ```
 
 ## Paginas Incluidas
@@ -82,35 +80,28 @@ Luego abrir:
 http://localhost:8080/integracion.html
 ```
 
-## Configuracion De Platform
-
-La URL base y la clave de la Integracion de Platform estan centralizadas en:
-
-```text
-assets/js/hsb-platform.config.js
-```
-
-Para cambiar de entorno o integracion:
-
-```js
-window.HSB_PLATFORM = {
-  baseUrl: "https://dev.hoysebaila.uy",
-  platformKey: "plt_xxxxxxxxxxxx"
-};
-```
-
 ## Zona Platform Embebida
 
-`integracion.html` declara un unico mount para la zona Platform publicada:
+`integracion.html` usa el snippet oficial de HoySeBaila Platform. El cliente no aloja JavaScript propio de Platform:
 
 ```html
-<div id="hsb-platform-site" data-hsb-render="site"></div>
+<div
+  data-hsb-platform="plt_NQwdwtkVAGtHs5uJ"
+  data-hsb-render="site">
+</div>
+
+<script
+  async
+  src="https://dev.hoysebaila.uy/platform/embed.js">
+</script>
 ```
 
-`assets/js/hsb-platform.js` agrega la clave `plt_`, conserva `data-hsb-render="site"` y carga:
+El snippet debe permanecer estable. HoySeBaila evoluciona `embed.js` del lado de HSB y los clientes reciben las mejoras automaticamente, sin mantener archivos propios ni versionar codigo de Platform en su sitio.
+
+Para instalar otra integracion, se modifica solamente la clave publica:
 
 ```html
-<script src="https://dev.hoysebaila.uy/platform/embed.js"></script>
+data-hsb-platform="plt_xxxxxxxxxxxx"
 ```
 
 ## Validacion Manual
@@ -133,7 +124,7 @@ En `integracion.html`, revisar:
 
 El proyecto no requiere build. Se puede publicar subiendo la carpeta completa a cualquier hosting estatico.
 
-Para produccion, revisar solamente `assets/js/hsb-platform.config.js` y cambiar `baseUrl` y `platformKey` si corresponde.
+Para produccion, revisar solamente la clave publica de Platform del snippet.
 
 ## Notas
 
